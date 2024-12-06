@@ -108,7 +108,7 @@ class BunkrrCrawler(Crawler):
 
         async with self.request_limiter:
             soup = await self.client.get_BS4(self.domain, scrape_item.url)
-        link_container = soup.select("a[class*=bg-blue-500]")[-1]
+        link_container = soup.select_one("a[class*=ic-download-01]")
         link = URL(link_container.get('href'))
 
         try:
